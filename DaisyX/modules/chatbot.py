@@ -82,7 +82,7 @@ def remove_chat(update: Update, context: CallbackContext):
 def check_message(context: CallbackContext, message):
     reply_msg = message.reply_to_message
 
-    if message.text.lower() == "liza":
+    if message.text.lower() == "anna":
         return True
     if reply_msg:
         if reply_msg.from_user.id == context.bot.get_me().id:
@@ -144,7 +144,7 @@ def list_chatbot_chats(update: Update, context: CallbackContext):
 
 
 __help__ = f"""
-Chatbot utilizes the CoffeeHouse API and allows Senku to talk and provides a more interactive group chat experience.
+Chatbot utilizes the CoffeeHouse API and allows Anna to talk and provides a more interactive group chat experience.
 
 *Commands:* 
 *Admins only:*
@@ -152,7 +152,7 @@ Chatbot utilizes the CoffeeHouse API and allows Senku to talk and provides a mor
  ✪ `/rmchat`*:* Disables Chatbot mode in the chat.
 
 Reports bugs at @{SUPPORT_CHAT}
-[Powered by CoffeeHouse](https://coffeehouse.intellivoid.net) from @Intellivoid
+[Powered by CoffeeHouse](https://coffeehouse.intellivoid.net) from Intellivoid
 """
 
 ADD_CHAT_HANDLER = CommandHandler("addchat", add_chat)
