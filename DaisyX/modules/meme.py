@@ -513,18 +513,15 @@ __help__ = """
  ✪ /truth or /dare*:* Send random truth or dare.
 
 *Memes*
-✪ /hitler*:* Quote a message and type this command to make a caption of hitler
-✪ /mock*:* Does the same as /hitler but spongemock instead
-✪ /kim*:* Does the same as /hitler but with Kim Jong Un instead (O no plox dont bomb my house)
 ✪ /rmeme*:* Sends random meme scraped from reddit
-*Regex based memes:*
 
-✪ /decide can be also used with regex like: `Liza? <question>: randomly answer "Yes, No" etc.`
+
+✪ /decide can be also used with regex like: `Anna? <question>: randomly answer "Yes, No" etc.`
 
 Some other regex filters are:
 `goodmorning`, `good morning` or `goodnight`, `good night`.
 
-Suzuya will reply random strings accordingly when these words are used!
+Anna will reply random strings accordingly when these words are used!
 All regex filters can be disabled incase u don't want... like: `/disable goodnight`.
 
 """
