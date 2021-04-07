@@ -67,6 +67,8 @@ Hello there, I'm [Anna](https://telegra.ph/file/1d3d724d5ffbb6086d0f5.png)
 
 I am a Group Managing Bot and I will help in managing your group
 
+if you need any help about this bot please contact [my owner](https://t.me/omiragk)
+
 ✪ Make sure you read *INFO* Section Below ✪ 
 """
 
