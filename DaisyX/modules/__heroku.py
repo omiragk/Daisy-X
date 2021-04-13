@@ -5,8 +5,8 @@ import os
 import heroku3
 import requests
 
-from MashaRoBot import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
-from MashaRoBot.events import register
+from Daisy-X import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
+from Daisy-X.events import register
 
 heroku_api = "https://api.heroku.com"
 Heroku = heroku3.from_key(HEROKU_API_KEY)
