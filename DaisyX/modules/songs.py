@@ -76,13 +76,30 @@ async def song(client, message):
 
 
 __help__ = """
- *You can either enter just the song name or both the artist and song
-  name. *
+*🎧 Playing Music in Voice chats using Anna*
 
- ✪ /song <songname artist(optional)>*:* uploads the song in it's best quality available
- ✪ /video <songname artist(optional)>*:* uploads the video song in it's best quality available
- ✪ /lyrics <song>*:* returns the lyrics of that song.
+Bot >> @musicandsong_play_robot
+Assistant >> @ogk_music_player
 
+👉 Cannot add Bot or Assistant??
+    - [contact me](https://t.me/omiragk)
+
+*👇here are the commands👇*
+
+For all members in group
+
+/play - reply to youtube url or song file to play song
+/play <song name> - play song you requested
+/search <query> - search videos on youtube with details
+
+Group Admins only
+
+/pause - pause song play
+/resume - resume song play
+/skip - play next song
+/end - stop music play
+
+🎧 Enjoy Music  😍
 """
 
 __mod_name__ = "Music 🎧"
