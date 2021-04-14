@@ -634,6 +634,11 @@ __help__ = """
   ✪ /reverse: Reverse searches image or stickers on google.
   ✪ /app <app name>: Finds an app in playstore for you
   ✪ /cash: currency converter
+  Example - 
+  `/cash 1 USD INR`  
+      _OR_
+ `/cash 1 usd inr`
+Output: `1.0 USD = 75.505 INR`
   
   *➩wallpaper*
   ✪ /wall <query>: Get random wallpapers directly from bot!
