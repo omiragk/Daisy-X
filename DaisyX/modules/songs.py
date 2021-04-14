@@ -78,10 +78,14 @@ async def song(client, message):
 __help__ = """
 *🎧 Playing Music in Voice chats using Anna*
 
+please add these 2 accounts to your group
 Bot >> @musicandsong_play_robot
 Assistant >> @ogk_music_player
 
 👉 Cannot add Bot or Assistant??
+    - [contact me](https://t.me/omiragk)
+
+👉 Need any help??
     - [contact me](https://t.me/omiragk)
 
 *👇here are the commands👇*
