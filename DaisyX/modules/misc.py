@@ -634,7 +634,10 @@ __help__ = """
   ✪ /reverse: Reverse searches image or stickers on google.
   ✪ /app <app name>: Finds an app in playstore for you
   ✪ /cash: currency converter
+  
+  *➩wallpaper*
   ✪ /wall <query>: Get random wallpapers directly from bot!
+  Powered By Wallpaper Abyss - https://wall.alphacoders.com
 
 *➩Github:*
   ✪ /git: Returns info about a GitHub user or organization.
