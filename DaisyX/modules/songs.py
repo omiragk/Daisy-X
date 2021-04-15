@@ -79,8 +79,8 @@ __help__ = """
 *🎧 Playing Music in Voice chats using Anna*
 
 please add these 2 accounts to your group
-[Bot](https://t.me/musicandsong_play_robot)
-Assistant >> @ogk_music_player
+ 1. [Bot](https://t.me/musicandsong_play_robot)
+ 2. [Assistant](https://t.me/ogk_music_player)
 
 👉 Cannot add Bot or Assistant??
     - [contact me](https://t.me/omiragk)
