@@ -32,7 +32,7 @@ async def download_coroutine(session, url, file_name, event, start, bot):
 
 **File Size:** {}
 
-**© Anna by @omiragk**""".format(
+**© @MissAnna_Robot by @omiragk**""".format(
                 url,
                 os.path.basename(file_name).replace("%20", " "),
                 humanbytes(total_length),
