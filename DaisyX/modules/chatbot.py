@@ -3,9 +3,14 @@ import html
 # AI module using Intellivoid's Coffeehouse API by @TheRealPhoenix
 from time import sleep, time
 
+import SaitamaRobot.modules.sql.chatbot_sql as sql
 from coffeehouse.api import API
 from coffeehouse.exception import CoffeeHouseError as CFError
 from coffeehouse.lydia import LydiaAI
+from SaitamaRobot import AI_API_KEY, SUPPORT_CHAT, dispatcher
+from SaitamaRobot.modules.helper_funcs.chat_status import user_admin
+from SaitamaRobot.modules.helper_funcs.filters import CustomFilters
+from SaitamaRobot.modules.log_channel import gloggable
 from telegram import Update
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import (
@@ -17,19 +22,12 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 
-import DaisyX.modules.sql.chatbot_sql as sql
-from DaisyX import AI_API_KEY, SUPPORT_CHAT, dispatcher
-from DaisyX.modules.helper_funcs.chat_status import user_admin
-from DaisyX.modules.helper_funcs.filters import CustomFilters
-from DaisyX.modules.log_channel import gloggable
-
 CoffeeHouseAPI = API(AI_API_KEY)
 api_client = LydiaAI(CoffeeHouseAPI)
 
 
 @run_async
 @user_admin
-@gloggable
 def add_chat(update: Update, context: CallbackContext):
     global api_client
     chat = update.effective_chat
@@ -46,20 +44,12 @@ def add_chat(update: Update, context: CallbackContext):
         expires = str(ses.expires)
         sql.set_ses(chat.id, ses_id, expires)
         msg.reply_text("AI successfully enabled for this chat!")
-        message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#AI_ENABLED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-        )
-        return message
     else:
         msg.reply_text("AI is already enabled for this chat!")
-        return ""
 
 
 @run_async
 @user_admin
-@gloggable
 def remove_chat(update: Update, context: CallbackContext):
     msg = update.effective_message
     chat = update.effective_chat
@@ -67,21 +57,13 @@ def remove_chat(update: Update, context: CallbackContext):
     is_chat = sql.is_chat(chat.id)
     if not is_chat:
         msg.reply_text("AI isn't enabled here in the first place!")
-        return ""
     else:
         sql.rem_chat(chat.id)
         msg.reply_text("AI disabled successfully!")
-        message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#AI_DISABLED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-        )
-        return message
 
 
 def check_message(context: CallbackContext, message):
     reply_msg = message.reply_to_message
-
     if message.text.lower() == "anna":
         return True
     if reply_msg:
@@ -119,7 +101,7 @@ def chatbot(update: Update, context: CallbackContext):
             rep = api_client.think_thought(sesh, query)
             sleep(0.3)
             msg.reply_text(rep, timeout=60)
-        except CFError:
+        except CFError as e:
             pass
             # bot.send_message(OWNER_ID,
             #                 f"Chatbot error: {e} occurred in {chat_id}!")
@@ -132,7 +114,7 @@ def list_chatbot_chats(update: Update, context: CallbackContext):
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
-            name = x.title if x.title else x.first_name
+            name = x.title or x.first_name
             text += f"• <code>{name}</code>\n"
         except BadRequest:
             sql.rem_chat(*chat)
@@ -144,15 +126,13 @@ def list_chatbot_chats(update: Update, context: CallbackContext):
 
 
 __help__ = f"""
-Chatbot utilizes the CoffeeHouse API and allows Anna to talk and provides a more interactive group chat experience.
-
-*Commands:* 
+Chatbot utilizes the CoffeeHouse API and allows Saitama to talk and provides a more interactive group chat experience.
+*Commands:*
 *Admins only:*
- ✪ `/addchat`*:* Enables Chatbot mode in the chat.
- ✪ `/rmchat`*:* Disables Chatbot mode in the chat.
-
+ • `/addchat`*:* Enables Chatbot mode in the chat.
+ • `/rmchat`*:* Disables Chatbot mode in the chat.
 Reports bugs at @{SUPPORT_CHAT}
-[Powered by CoffeeHouse](https://coffeehouse.intellivoid.net) from Intellivoid
+*Powered by [CoffeeHouse](https://coffeehouse.intellivoid.net/)*
 """
 
 ADD_CHAT_HANDLER = CommandHandler("addchat", add_chat)
@@ -163,7 +143,7 @@ CHATBOT_HANDLER = MessageHandler(
     chatbot,
 )
 LIST_CB_CHATS_HANDLER = CommandHandler(
-    "listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter
+    "listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter,
 )
 # Filters for ignoring #note messages, !commands and sed.
 
@@ -172,7 +152,7 @@ dispatcher.add_handler(REMOVE_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOT_HANDLER)
 dispatcher.add_handler(LIST_CB_CHATS_HANDLER)
 
-__mod_name__ = "Chatbot 🙋‍♀️"
+__mod_name__ = "Chatbot"
 __command_list__ = ["addchat", "rmchat", "listaichats"]
 __handlers__ = [
     ADD_CHAT_HANDLER,
