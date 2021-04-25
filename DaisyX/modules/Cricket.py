@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from telethon import events
 from telethon.tl import functions, types
 
-from Mizuki import telethn as tbot
+from DaisyX import telethn as tbot
 
 
 async def is_register_admin(chat, user):
