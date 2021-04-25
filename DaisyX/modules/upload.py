@@ -58,7 +58,7 @@ async def send_to_tmp_async(file):
     return download_link
 
 
-@bot.on(events.NewMessage(pattern="/transfersh"))
+@bot.on(events.NewMessage(pattern="/getlink"))
 async def tsh(event):
     if event.reply_to_msg_id:
         start = time.time()
@@ -128,7 +128,7 @@ async def tmp(event):
     raise events.StopPropagation
 
 
-@bot.on(events.NewMessage(pattern="/up"))
+@bot.on(events.NewMessage(pattern="/upload"))
 async def up(event):
     if event.reply_to_msg_id:
         start = time.time()
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     main()
 
 __help__ = """
- ⦁ `/transfersh`*:* reply to a telegram file to upload it on transfersh and get direct download link
+ ⦁ `/getlink`*:* reply to a telegram file to upload it on transfersh and get direct download link
 
 © @omiragk
 """
