@@ -657,7 +657,7 @@ Output: `1.0 USD = 75.505 INR`
   ✪ /getpaste: Get the content of a paste or shortened url from dogbin
   ✪ /fpaste: Create a paste or a shortened url using dogbin and nekobin.*From files to url.*
 
-*➩Time and Weather:*
+*➩Time:*
   ✪ /time <query>: Gives information about a timezone.
 \
 """
