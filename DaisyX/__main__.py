@@ -73,7 +73,7 @@ if you need any help about this bot please contact [my owner](https://t.me/omira
 
 buttons = [
     [
-        InlineKeyboardButton(text="About Me", callback_data="aboutmanu_"),
+        InlineKeyboardButton(text="🚀Info🚀", callback_data="aboutmanu_"),
     ],
     [
         InlineKeyboardButton(text="❓ Help & Commands ❓", callback_data="help_back"),
@@ -91,9 +91,6 @@ HELP_STRINGS = f"""
 ✪ /start: Starts me! You've probably already used this.
 ✪ /help: Click this, I'll let you know about myself!
 ✪ /donate: You can support my creater using this command.
-✪ /settings: 
-   ◔ in PM: will send you your settings for all supported modules.
-   ◔ in a Group: will redirect you to pm, with all that chat's settings.
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
@@ -371,11 +368,11 @@ def DaisyX_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Terms and Conditions", callback_data="aboutmanu_tac"
+                            text="🙃Terms and Conditions🙃", callback_data="aboutmanu_tac"
                         ),
                     ],
                     
-                    [InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")],
+                    [InlineKeyboardButton(text="🔙Back🔙", callback_data="aboutmanu_back")],
                 ]
             ),
         )
@@ -417,7 +414,7 @@ def DaisyX_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="Back", callback_data="aboutmanu_"),
+                        InlineKeyboardButton(text="🔙Back🔙", callback_data="aboutmanu_"),
                     ]
                 ]
             ),
