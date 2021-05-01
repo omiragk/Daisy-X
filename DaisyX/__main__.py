@@ -69,12 +69,11 @@ I am a Group Managing Bot and I will help in managing your group
 
 if you need any help about this bot please contact [my owner](https://t.me/omiragk)
 
-✪ Make sure you read *INFO* Section Below ✪ 
 """
 
 buttons = [
     [
-        InlineKeyboardButton(text="🚀 INFO & Credits 🚀", callback_data="aboutmanu_"),
+        InlineKeyboardButton(text="About Me", callback_data="aboutmanu_"),
     ],
     [
         InlineKeyboardButton(text="❓ Help & Commands ❓", callback_data="help_back"),
@@ -372,14 +371,10 @@ def DaisyX_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="T & C", callback_data="aboutmanu_tac"
+                            text="Terms and Conditions", callback_data="aboutmanu_tac"
                         ),
                     ],
-                    [
-                        InlineKeyboardButton(
-                            text="❔Help & Commands", callback_data="help_back"
-                        )
-                    ],
+                    
                     [InlineKeyboardButton(text="Back", callback_data="aboutmanu_back")],
                 ]
             ),
@@ -422,9 +417,6 @@ def DaisyX_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(
-                            text="Credits", callback_data="aboutmanu_credit"
-                        ),
                         InlineKeyboardButton(text="Back", callback_data="aboutmanu_"),
                     ]
                 ]
