@@ -97,9 +97,8 @@ HELP_STRINGS = f"""
 )
 
 
-DONATE_STRING = """Hey, glad to hear you want to donate!
-You can donate to the of the bot,
-Support him  [omira](t.me/omiragk),"""
+DONATE_STRING = """*Anna* is hosted on one of Heroku's Servers and doesn't require any donations as of now but \
+You can donate to the developer of the *Anna*,[omira](t.me/omiragk),"""
 
 IMPORTED = {}
 MIGRATEABLE = []
