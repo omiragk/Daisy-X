@@ -100,8 +100,10 @@ Group Admins only
 
 /pause - pause song play
 /resume - resume song play
-/skip - play next song
+/skip or /next - play next song
 /end - stop music play
+/joinplayer - invite assistant to your group
+/leaveplayer - remove assistant from your group
 
 🎧 Enjoy Music  😍
 """
