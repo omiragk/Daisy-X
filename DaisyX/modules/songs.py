@@ -108,4 +108,4 @@ Group Admins only
 🎧 Enjoy Music  😍
 """
 
-__mod_name__ = "Music 🎧"
+__mod_name__ = "Music in VC🎧"
