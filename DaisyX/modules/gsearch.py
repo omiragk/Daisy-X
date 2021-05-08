@@ -40,20 +40,21 @@ async def _(event):
                 " Hai.. You are not admin..  You can't use this command.. But you can use in my pm"
             )
             return
-    # SHOW_DESCRIPTION = False
-    input_str = event.pattern_match.group(
-        1
-    )  # + " -inurl:(htm|html|php|pls|txt) intitle:index.of \"last modified\" (mkv|mp4|avi|epub|pdf|mp3)"
-    input_url = "https://bots.shrimadhavuk.me/search/?q={}".format(input_str)
-    headers = {"USER-AGENT": "UniBorg"}
-    response = requests.get(input_url, headers=headers).json()
-    output_str = " "
-    for result in response["results"]:
-        text = result.get("title")
-        url = result.get("url")
-        description = result.get("description")
-        last = html2text.html2text(description)
-        output_str += "[{}]({})\n{}\n".format(text, url, last)
-    await event.reply(
-        "{}".format(output_str), link_preview=False, parse_mode="Markdown"
-    )
+        if len(message.command) < 2:
+            await message.reply_text("/google Needs An Argument")
+            return
+        text = message.text.split(None, 1)[1]
+        gresults = await GoogleSearch().async_search(text, 1)
+        result = ""
+        for i in range(4):
+            try:
+                title = gresults["titles"][i].replace("\n", " ")
+                source = gresults["links"][i]
+                description = gresults["descriptions"][i]
+                result += f"[{title}]({source})\n"
+                result += f"`{description}`\n\n"
+            except IndexError:
+                pass
+        await message.reply_text(result, disable_web_page_preview=True)
+    except Exception as e:
+        await message.reply_text(str(e))
