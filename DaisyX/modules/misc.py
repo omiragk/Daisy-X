@@ -628,7 +628,7 @@ __help__ = """
   ✪ /stt: Convert audio to text ( only English).
 
 *➩Search:*
-  ✪ /google <text>:- search google queries.Use in bot pm (admin can use in group).
+  ✪ /img <text>:- search in google images.and send 5 images.
   ✪ /wiki: Search wikipedia articles.
   ✪ /ud <query>: Search stuffs in urban dictionary.
   ✪ /reverse: Reverse searches image or stickers on google.
