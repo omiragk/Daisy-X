@@ -265,7 +265,7 @@ async def download_video(v_url):
 
 
 __help__ = """
- ➩ /song <songname> *or* /music <songname>: uploads the song in it's best quality available
+ ➩ /music <songname>: uploads the song in it's best quality available
 
  ➩ /vsong <songname> *or* /video <songname>: uploads the video song in it's best quality available
  
